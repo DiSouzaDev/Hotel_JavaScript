@@ -1,19 +1,18 @@
-// var senhaUsu = 2678; //Senha pré-determinada
-// var nomeHotel = prompt("Escolha o nome do Hotel:");
-// alert("O nome do Hotel é " + nomeHotel);
-// var nomeUsu = prompt("Digite seu nome para entrar no sistema:");
-// function Senha() { //Função de confirmação de senha
-// 	var senha = prompt("Digite sua senha:");
-// 	if (senha == senhaUsu) {
-// 		alert("Bem vindo ao Hotel " + nomeHotel + ", " + nomeUsu + ". É um imenso prazer ter você por aqui!");
-// 		inicio();
-// 	} else {
-// 		alert("Senha inválida, tente novamente.");
-// 		Senha();
-// 	}
-// }
-// Senha();
-var nomeHotel = "Atlanta"; var nomeUsu = "Diogo";//<---- apagar
+var senhaUsu = 2678; //Senha pré-determinada
+var nomeHotel = prompt("Escolha o nome do Hotel:");
+alert("O nome do Hotel é " + nomeHotel);
+var nomeUsu = prompt("Digite seu nome para entrar no sistema:");
+function Senha() { //Função de confirmação de senha
+	var senha = prompt("Digite sua senha:");
+	if (senha == senhaUsu) {
+		alert("Bem vindo ao Hotel " + nomeHotel + ", " + nomeUsu + ". É um imenso prazer ter você por aqui!");
+		inicio();
+	} else {
+		alert("Senha inválida, tente novamente.");
+		Senha();
+	}
+}
+Senha();
 
 function inicio() {
 
@@ -58,27 +57,25 @@ function inicio() {
 
 function reserva_quartos() {
     var valDiaria = prompt("Qual o valor padrão da diária?"); //O usuário setermina o valor da diária
-    if(valDiaria <= 0){
+    if(valDiaria <= 0 || isNaN(valDiaria)){
         alert("Digite um valor válido.");
         reserva_quartos();
     }
     var diasReservados = prompt("Quantos dias você deseja reservar?");
-    if (diasReservados <= 0 || diasReservados > 30){
+    if (diasReservados <= 0 || diasReservados > 30 || isNaN(diasReservados)){
         alert("Coloque números válidos. Só aceitamos reservas de até 30 dias.");
         reserva_quartos();
     }else{
         var valorPagar = valDiaria * diasReservados;
         alert("O valor de " + diasReservados + " dias de hospedagem é de " + valorPagar + " reais.");
         var nomeHospede = prompt("Digite seu nome para a reserva:")
-        var confirma = prompt(nomeHospede + ", você confirma a hospedagem para " + nomeHotel + " por " + diasReservados + " dias? S/N");
-        if (confirma == "S"){
+        var confirma = confirm(nomeHospede + ", você confirma a hospedagem para " + nomeHotel + " por " + diasReservados + " dias? S/N");
+        if (confirma){
             alert(nomeHospede + ", reserva confirmada para " + nomeHotel + ". O valor total é de " + valorPagar + " reais.")
-        }else if (confirma == "N"){
-            alert(nomeHospede + ", reserva não efetuada.");
             inicio();
         }else{
-            alert("Digite um valor válido.")
-            reserva_quartos();
+            alert(nomeHospede + ", reserva não efetuada.");
+            inicio();
         }
     }
 }
@@ -101,8 +98,8 @@ function cadastro_hospedes() {
             alert(nomeUsu + ", o total de hospedagens é R$" + total + ", somando " + gratuidade_hospede.length + " gratuidade(s) e " + meia_hospede.length + " meia(s).");
             inicio();
         } 
-        var idade = prompt("Digite a idade do hospede:");
-        if(idade <= 0 || idade >=110){
+        var idade = parseInt(prompt("Digite a idade do hospede:"));
+        if(idade <= 0 || idade >=120 || isNaN(idade)){
             alert("Coloque uma idade válida");
             cadastro();
         }else if(idade <= 6){
@@ -150,7 +147,7 @@ function cadastro_pesquisa() {
             alert("Numero máximo de hóspedes cadastrados.");
         } else {	
             var nome_hospede = prompt('Por favor, informe o nome da(o) hóspede:');
-            
+
             // O método push() permite adicionar um item ao Array/Vetor. Importante dizer que ele adiciona o elemento ao final do Array/Vetor. 
             lista_hospedes.push(nome_hospede);
             console.log(lista_hospedes); // O console é usado apenas para exibir ao desenvolvedor todo mundo que já está cadastrado.
@@ -253,8 +250,6 @@ function buffet() {
 }
 
 function reserva_auditorio() {
-    var audLaranja = 220;
-    var audColorado = 350;
 
     var qtdPessoas = parseInt(prompt('Quantos convidados seu evento terá?'));
     if(qtdPessoas > 350 || qtdPessoas <= 0){
@@ -289,6 +284,7 @@ function reserva_auditorio() {
             }	
         }else{
             alert('Use o auditório colorado.');
+            var confirmar = confirm('Efetuar reserva?');
             if(confirmar){
                 alert(nomeUsu + ', reserva efetuada.');
                 inicio();
@@ -312,6 +308,9 @@ function reserva_restaurante() {
             var nomeEmpresa = prompt('Qual o nome da sua empresa?');
             alert('Reserva efetuada para ' + nomeEmpresa + '. ' + diaSemana + ' ás ' + hora + 'h.')
             inicio();
+        }else{
+            alert('Horário indisponível. Funcionamos das 7h as 23h.');
+            reserva_restaurante();
         }
     }else if(diaSemana == "sabado" || diaSemana == "domingo"){
         var hora = parseInt(prompt("Qual horário você quer reservar?"));
@@ -322,6 +321,9 @@ function reserva_restaurante() {
             var nomeEmpresa = prompt('Qual o nome da sua empresa?');
             alert('Reserva efetuada para ' + nomeEmpresa + '. ' + diaSemana + ' ás ' + hora + ' h.')
             inicio();
+        }else{
+            alert('Horário indisponível. Funcionamos das 7h as 15h.');
+            reserva_restaurante();
         }
     }else{
         alert('Digite um dia válido.');
@@ -376,43 +378,66 @@ function abastecer_carros() {
 }
 
 function concerto_ar() {
-    var valoresEmpresas = [];
+    var menorEmpresa = '';
+    var menorCusto = 100000000;
 
-    function orcamento(){
-        var nomeEmpresa = prompt('Digite o nome da empresa.');
-        var valor = parseFloat(prompt('Qual o valor por aparelho?'));
-        var qtdAparelho = parseInt(prompt('Quantos aparelhos precisarão de manutenção?'));
-        var prcDesc = parseFloat(prompt('Qual a porcentagem do desconto?'));
-        var qtdDesc = parseInt(prompt('Quantos aparelhos para conseguir o desconto?'));
-        if(qtdAparelho >= qtdDesc){
-            var total = valor * qtdAparelho;
-            var desc = (total * prcDesc) / 100;
-            var totalCheio = total - desc;
-            alert("O serviço de " + nomeEmpresa + " custará R$" + totalCheio + " reais.");
-            valoresEmpresas.push(nomeEmpresa, totalCheio);
-        }else{
-            var totalCheio = valor * qtdAparelho;
-            alert("O serviço de " + nomeEmpresa + " custará R$" + totalCheio + " reais.");
-            valoresEmpresas.push(nomeEmpresa, totalCheio);
-        }
-
-        alert(nomeEmpresa);
-        var novoOr = prompt("Deseja calcular orçamento de outra(s) empresa(s)?");
-        if(novoOr == "S"){
-            orcamento();
-        }else if(novoOr == "N"){
-            
-        }
+    var nomeEmpresa = prompt('Digite o nome da empresa.');
+    var valor = parseFloat(prompt('Qual o valor por aparelho?'));
+    if(isNaN(valor)){
+        alert("Digite valores válidos!");
+        concerto_ar();
     }
-    orcamento();
+    var qtdAparelho = parseInt(prompt('Quantos aparelhos precisarão de manutenção?'));
+    if(isNaN(qtdAparelho)){
+        alert("Digite valores válidos!");
+        concerto_ar();
+    }
+    var prcDesc = parseFloat(prompt('Qual a porcentagem do desconto?'));
+    if(isNaN(prcDesc)){
+        alert("Digite valores válidos!");
+        concerto_ar();
+    }
+    var qtdDesc = parseInt(prompt('Quantos aparelhos para conseguir o desconto?'));
+    if(isNaN(qtdDesc)){
+        alert("Digite valores válidos!");
+        concerto_ar();
+    }
+    if(qtdAparelho >= qtdDesc){
+        var total = valor * qtdAparelho;
+        var desc = (total * prcDesc) / 100;
+        var totalCheio = total - desc;
+        alert("O serviço de " + nomeEmpresa + " custará R$" + totalCheio + " reais.");
+        menorEmpresa = nomeEmpresa;
+        menorCusto = totalCheio;
+    }else{
+        var totalCheio = valor * qtdAparelho;
+        alert("O serviço de " + nomeEmpresa + " custará R$" + totalCheio + " reais.");
+        menorEmpresa = nomeEmpresa;
+        menorCusto = totalCheio;
+    }
+    var novoOr = prompt("Deseja calcular orçamento de outra(s) empresa(s)?");
+    if(novoOr == 'S'){
+        if(totalCheio < menorCusto){
+            menorEmpresa = nomeEmpresa;
+            menorCusto = totalCheio;
+            concerto_ar();
+        }else{
+            concerto_ar();
+        }
+    }else if(novoOr == 'N'){
+        alert('O orçamento de menor valor é o da empresa ' + menorEmpresa + ' por R$' + menorCusto + ' reais.')
+        inicio();
+    }else{
+        alert('Algo saiu errado, tente novamente!');
+        concerto_ar();
+    }
 }
 
 function sair() {
     var confirma = confirm('Você deseja sair?');
     if (confirma) {
-        alert("Muito obrigado e até logo, " + nomeUsu);
-        window.close();
-    } else {
+        alert("Muito obrigado e até logo, " + nomeUsu); window.close();
+    } else{
         inicio();
     }
 }
