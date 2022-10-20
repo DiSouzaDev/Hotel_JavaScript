@@ -1,5 +1,5 @@
 # Hotel_JavaScript
-#Criação:
+# Criação:
 Esse sem dúvidas foi o projeto em Javascrip muito trabalhoso. A proposta em si já traz algo diferente por estarmos desenvolvendo uma apliação para dar suporte ao funcionário em seu trabalho. Nos fez pensar fora da caixa e desenvolver muitos cálculos. Desafiador, porém muito empolgante de realizar.
 
 ## Proposta:
