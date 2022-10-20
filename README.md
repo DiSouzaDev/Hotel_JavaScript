@@ -1,4 +1,7 @@
 # Hotel_JavaScript
+#Criação:
+Esse sem dúvidas foi o projeto em Javascrip muito trabalhoso. A proposta em si já traz algo diferente por estarmos desenvolvendo uma apliação para dar suporte ao funcionário em seu trabalho. Nos fez pensar fora da caixa e desenvolver muitos cálculos. Desafiador, porém muito empolgante de realizar.
+
 ## Proposta:
 Hora de pensar! Hoje vamos desenvolver um programa feito com vários outros programas utilizando um conceito de software modulado, feito com partes independentes.  O objetivo é desenvolver uma plataforma para funcionários do hotel usarem, não os hóspedes.
 
