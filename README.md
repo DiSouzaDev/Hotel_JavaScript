@@ -5,7 +5,7 @@ Esse sem dúvidas foi o projeto em Javascrip muito trabalhoso. A proposta em si 
 ## Proposta:
 Hora de pensar! Hoje vamos desenvolver um programa feito com vários outros programas utilizando um conceito de software modulado, feito com partes independentes.  O objetivo é desenvolver uma plataforma para funcionários do hotel usarem, não os hóspedes.
 
-# A plataforma deve conter:
+## A plataforma deve conter:
 ## Reserva de Quartos
 Todo hotel precisava reservar quartos. Então vamos começar por isso. Desenvolva um programa que: 
 - Receba o valor de uma diária no hotel e a quantidade de dias de hospedagem. Valide as informações, ou seja, impeça que o usuário informe dados inválidos, de maneira que o valor da diária não seja negativo e que a quantidade de dias não seja negativa, nem maior que 30. 
