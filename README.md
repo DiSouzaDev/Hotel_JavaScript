@@ -26,7 +26,7 @@ Aqui vamos tratar do cadastro de hóspedes, mas de uma forma diferente. Como no 
 - O programa deve permitir que o usuário realize essas operações repetidas vezes, até que use a opção “3”, que retorna ao menu principal.  
 
 ## Reserva de Salão para Festa
-Neste cenário, o hotel receberá não hóspedes, mas eventos. Quando uma empresa contrata o hotel para eventos, são oferecidos garçons para servir os convidados. --------- Considerando que cada garçom custa R$ 10,50 por hora, escreva um programa que receba o número de garçons necessários e o total de horas do evento. 
+Neste cenário, o hotel receberá não hóspedes, mas eventos. Quando uma empresa contrata o hotel para eventos, são oferecidos garçons para servir os convidados. Considerando que cada garçom custa R$ 10,50 por hora, escreva um programa que receba o número de garçons necessários e o total de horas do evento. 
 - Depois calcule o custo total que o hotel terá com a contratação desses profissionais e exiba o resultado em tela. 
 - Por último, pergunte se o usuário aceita os valores. Se "SIM", exiba a mensagem "Reserva efetuada com sucesso". Caso contrário, exiba a mensagem "Reserva não efetuada."
 
@@ -51,11 +51,11 @@ Importante: na entrada de dados para dia da semana, desconsidere acentos e use l
 4. Quando o restaurante estiver disponível, receba ainda o nome da empresa e mostre na tela a mensagem “Restaurante reservado para (nome da empresa): (dia da semana) às (horas)hs”.
 
 ## Comparativo para Abastecimento de Carros
-O hotel tem um carro para levar seus hóspedes a passeios. O carro é sempre abastecido pelo hotel que tem convênios com dois postos de Gasolina: o Wayne Oil e o Stark Petrol. Os carros podem ser abastecidos tanto com álcool quanto gasolina, mas os preços têm flutuado bastante, então é necessário que que um funcionário cheque qual o posto mais em conta para abastecimento. [^1]
+O hotel tem um carro para levar seus hóspedes a passeios. O carro é sempre abastecido pelo hotel que tem convênios com dois postos de Gasolina: o Wayne Oil e o Stark Petrol. Os carros podem ser abastecidos tanto com álcool quanto gasolina, mas os preços têm flutuado bastante, então é necessário que que um funcionário cheque qual o posto mais em conta para abastecimento.
 
 Para isso, é necessário desenvolver um programa em que o usuário informe os valores de álcool e gasolina dos dois postos e depois calcule qual o combustível mais atraente e o posto mais barato. Considere que o tanque do carro comporta 42 litros de combústivel e esse sempre será o volume a ser abastecido. 
 Considere que quando o álcool estiver 30% mais barato que a gasolina, é mais barato abastecer com álcool.
-Dica: Regra de três. [^2]
+Dica: Regra de três.
 
 ## Comparativo para Concerto de Ar-Condicionado
 A manutenção dos ares condicionados no hotel é realizada por empresas terceirizadas que, em alguns casos, oferecem desconto quando o serviço é realizado em uma quantidade determinada de aparelhos. Dentro desse contexto, crie um programa em que:
@@ -63,4 +63,5 @@ A manutenção dos ares condicionados no hotel é realizada por empresas terceir
 * Calcule o valor total do serviço a partir do valor por aparelho e da quantidade de aparelhos. Aplique sobre esse valor o desconto, caso a quantidade de aparelhos seja maior que a mínima informada para que haja desconto. Ao fim mostre a mensagem “O serviço de [nome da empresa] custará R$ [total calculado]”.
 * Permita que o usuário informe várias empresas e os outros dados necessários para o cálculo, usando a função/procedimento para mostrar o total orçado de cada empresa. Termine o algoritmo quando o usuário responder ‘N’ à mensagem “Deseja informar novos dados? (S/N)
 * Seja possível obter os diferentes valores orçados e verificar o menor valor. Mostre ao final a mensagem “O orçamento de menor valor é o de (nome da empresa) por R$ (menor valor)".
+
 Considere que sempre serão informados ao menos duas empresas.
