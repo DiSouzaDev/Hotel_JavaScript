@@ -68,3 +68,5 @@ A manutenção dos ares condicionados no hotel é realizada por empresas terceir
 * Seja possível obter os diferentes valores orçados e verificar o menor valor. Mostre ao final a mensagem “O orçamento de menor valor é o de (nome da empresa) por R$ (menor valor)".
 
 Considere que sempre serão informados ao menos duas empresas.
+
+[Ver código](https://github.com/DiSouzaDev/Hotel_JavaScript/blob/main/script.js)
